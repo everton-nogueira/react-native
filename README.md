@@ -1,2 +1,2 @@
 # react-native
-Repositório com exercícios de React
+Repositório com exercícios da linguagem React-Native

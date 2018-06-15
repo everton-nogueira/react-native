@@ -4,6 +4,16 @@ import {SafeAreaView, Image, Text, TextInput, Button, StyleSheet, View, Keyboard
 const img = require('../assets/TodoList.png');
 
 export default class Login extends Component {
+
+    constructor (props){
+        super(props);
+
+        this.state = {
+            email: props.email,
+            password = ''
+        }
+    }
+
     render () {
         return (
             <KeyboardAvoidingView style={styles.corpo} behavior='padding' >
@@ -12,8 +22,13 @@ export default class Login extends Component {
                         <Image source={img} style={styles.imagem}/>
                     </View>
                     <View style={styles.campos}>
-                        <TextInput placeholder='Email' keyboardType={'email-address'} onChangeText={(text) => this.setState({email:text})}/>
-                        <TextInput placeholder='Password' secureTextEntry={true} onChangeText={(text) => this.setState({senha:text})}/>
+                        <TextInput  placeholder='Email' 
+                                    value={this.state.email}
+                                    keyboardType={'email-address'} 
+                                    onChangeText={(text) => this.setState({email:text})} />
+                        <TextInput  placeholder='Password' 
+                                    secureTextEntry={true} 
+                                    onChangeText={(text) => this.setState({senha:text})}/>
                         <Button title='Sign In' onPress={() => {Alert.alert('EMAIL: '+this.state.email+'SENHA: '+this.state.senha)} }/>
                         <View style={styles.texto}>
                             <Text>Not a member: Let's Register</Text>
